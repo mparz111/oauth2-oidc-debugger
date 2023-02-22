@@ -28,7 +28,7 @@ post("/token") do
 	begin
 		grant_type = params[:grant_type]
       		token_endpoint = params[:token_endpoint]
-      		client_id = params[:client_id]
+      		clientID = params[:clientID]
       		client_secret = params[:client_secret]
  		redirect_uri = ""
 		code = ""
@@ -65,7 +65,7 @@ post("/token") do
 			sslValidate = false
 		end
 		puts "token_endpoint=" + token_endpoint
-                puts "client_id=" + client_id
+                puts "clientID=" + clientID
 		if client_secret != nil
                 	puts "client_secret=" + client_secret
 		else
@@ -82,7 +82,7 @@ post("/token") do
 		if grant_type == "authorization_code"
       			parameterObject = { 
 				grant_type: grant_type,
-				client_id: client_id,
+				clientID: clientID,
 				client_secret: client_secret,
 				code: code,
 				redirect_uri: redirect_uri
@@ -90,13 +90,13 @@ post("/token") do
 		elsif grant_type == "client_credentials"
 			parameterObject =  {
 				grant_type: grant_type,
-				client_id: client_id,
+				clientID: clientID,
 				client_secret: client_secret
 			}
 		elsif grant_type == "password"
 			parameterObject = {
 				grant_type: grant_type,
-				client_id: client_id,
+				clientID: clientID,
 				client_secret: client_secret,
 				username: username,
 				password: password
@@ -104,7 +104,7 @@ post("/token") do
                 elsif grant_type == "refresh_token"
                        parameterObject = {
                                 grant_type: grant_type,
-                                client_id: client_id,
+                                clientID: clientID,
                                 client_secret: client_secret,
 				refresh_token: refresh_token
                         }

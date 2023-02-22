@@ -64,7 +64,7 @@ $(document).ready(function() {
       console.log("Entering token Submit button clicked function.");
       // validate and process form here
       var token_endpoint = document.getElementById("token_endpoint").value;
-      var client_id = document.getElementById("token_client_id").value;
+      var clientID = document.getElementById("token_clientID").value;
       var client_secret = document.getElementById("token_client_secret").value;
       var code = document.getElementById("code").value;
       var grant_type = document.getElementById("token_grant_type").value;
@@ -86,7 +86,7 @@ $(document).ready(function() {
       {
         formData = {
           grant_type: grant_type,
-          client_id: client_id,
+          clientID: clientID,
           code: code,
           redirect_uri: redirect_uri,
           scope: scope,
@@ -96,7 +96,7 @@ $(document).ready(function() {
       } else if( grant_type == "password") {
         formData = {
           grant_type: grant_type,
-          client_id: client_id,
+          clientID: clientID,
           username: username,
           password: password,
           code: code,
@@ -107,7 +107,7 @@ $(document).ready(function() {
       } else if( grant_type == "client_credentials") {
         formData = {
           grant_type: grant_type,
-          client_id: client_id,
+          clientID: clientID,
           scope: scope,
           token_endpoint: token_endpoint,
           sslValidate: sslValidate
@@ -203,7 +203,7 @@ $(".refresh_btn").click(function() {
       console.log("Entering refresh Submit button clicked function.");
       // validate and process form here
       var token_endpoint = document.getElementById("token_endpoint").value;
-      var client_id = document.getElementById("refresh_client_id").value;
+      var clientID = document.getElementById("refresh_clientID").value;
       var client_secret = document.getElementById("refresh_client_secret").value;
       var refresh_token = document.getElementById("refresh_refresh_token").value;
       var grant_type = document.getElementById("refresh_grant_type").value;
@@ -219,7 +219,7 @@ $(".refresh_btn").click(function() {
       }
       var formData = {
         grant_type: grant_type,
-        client_id: client_id,
+        clientID: clientID,
         refresh_token: refresh_token,
         scope: scope,
         token_endpoint: token_endpoint,
@@ -556,7 +556,7 @@ function writeValuesToLocalStorage()
 {
   console.log("Entering writeValuesToLocalStorage().");
   if (localStorage) {
-      localStorage.setItem("token_client_id", document.getElementById("token_client_id").value);
+      localStorage.setItem("token_clientID", document.getElementById("token_clientID").value);
       localStorage.setItem("token_client_secret", document.getElementById("token_client_secret").value);
       localStorage.setItem("token_redirect_uri", document.getElementById("token_redirect_uri").value);
       localStorage.setItem("token_username", document.getElementById("token_username").value);
@@ -567,7 +567,7 @@ function writeValuesToLocalStorage()
       localStorage.setItem("noCheckToken", document.getElementById("noCheckToken").checked);
       localStorage.setItem("yesCheckOIDCArtifacts", document.getElementById("yesCheckOIDCArtifacts").checked);
       localStorage.setItem("noCheckOIDCArtifacts", document.getElementById("noCheckOIDCArtifacts").checked);
-      localStorage.setItem("refresh_client_id", document.getElementById("refresh_client_id").value);
+      localStorage.setItem("refresh_clientID", document.getElementById("refresh_clientID").value);
       localStorage.setItem("refresh_client_secret", document.getElementById("refresh_client_secret").value);
       localStorage.setItem("refresh_scope", document.getElementById("refresh_scope").value);
       localStorage.setItem("useRefreshToken_yes", document.getElementById("useRefreshToken-yes").checked);
@@ -592,10 +592,10 @@ function loadValuesFromLocalStorage()
   document.getElementById("authorization_endpoint").value = localStorage.getItem("authorization_endpoint");
   document.getElementById("token_endpoint").value = localStorage.getItem("token_endpoint");
   document.getElementById("redirect_uri").value = localStorage.getItem("redirect_uri");
-  document.getElementById("client_id").value = localStorage.getItem("client_id");
+  document.getElementById("clientID").value = localStorage.getItem("clientID");
   document.getElementById("scope").value = localStorage.getItem("scope");
   document.getElementById("resource").value = localStorage.getItem("resource");
-  document.getElementById("token_client_id").value = localStorage.getItem("token_client_id");
+  document.getElementById("token_clientID").value = localStorage.getItem("token_clientID");
   document.getElementById("token_client_secret").value = localStorage.getItem("token_client_secret");
   document.getElementById("token_redirect_uri").value = localStorage.getItem("token_redirect_uri");
   document.getElementById("token_scope").value = localStorage.getItem("token_scope");
@@ -607,7 +607,7 @@ function loadValuesFromLocalStorage()
   document.getElementById("noCheckToken").checked = localStorage.getItem("noCheckToken");
   document.getElementById("yesCheckOIDCArtifacts").checked = localStorage.getItem("yesCheckOIDCArtifacts");
   document.getElementById("noCheckOIDCArtifacts").checked = localStorage.getItem("noCheckOIDCArtifacts");
-  document.getElementById("refresh_client_id").value = localStorage.getItem("refresh_client_id");
+  document.getElementById("refresh_clientID").value = localStorage.getItem("refresh_clientID");
   document.getElementById("refresh_scope").value = localStorage.getItem("refresh_scope");
   document.getElementById("refresh_client_secret").value = localStorage.getItem("refresh_client_secret");
   document.getElementById("useRefreshToken-yes").checked = localStorage.getItem("useRefreshToken_yes");
@@ -800,7 +800,7 @@ function recalculateAuthorizationRequestDescription()
       document.getElementById("display_authz_request_form_textarea1").value = "GET " + document.getElementById("authorization_endpoint").value + "?" + "\n" +
                                                                       "state=" + document.getElementById("state").value + "&" + "\n" +
   								      "response_type=" + document.getElementById("response_type").value + "&" + "\n" +
-  								      "client_id=" + document.getElementById("client_id").value + "&" + "\n" +
+  								      "clientID=" + document.getElementById("clientID").value + "&" + "\n" +
                 						      "redirect_uri=" + document.getElementById("redirect_uri").value + "&" +"\n" +
 								      "scope=" + document.getElementById("scope").value + "\n" +
                                                                       resourceComponent + "\n";
@@ -811,7 +811,7 @@ function recalculateAuthorizationRequestDescription()
                                                                       "state=" + document.getElementById("state").value + "&" + "\n" +
                                                                       "nonce=" + document.getElementById("nonce_field").value + "&" + "\n" +
                                                                       "response_type=" + document.getElementById("response_type").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("clientID").value + "&" + "\n" +
                                                                       "redirect_uri=" + document.getElementById("redirect_uri").value + "&" +"\n" +
                                                                       "scope=" + document.getElementById("scope").value + "\n" +
                                                                       resourceComponent + "\n";
@@ -847,7 +847,7 @@ function recalculateTokenRequestDescription()
 								      "Message Body:\n" +
                                                                       "grant_type=" + document.getElementById("token_grant_type").value + "&" + "\n" +
                                                                       "code=" + document.getElementById("code").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("token_client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("token_clientID").value + "&" + "\n" +
                                                                       "redirect_uri=" + document.getElementById("token_redirect_uri").value + "&" +"\n" +
                                                                       "scope=" + document.getElementById("token_scope").value + "\n" + 
                                                            	      resourceComponent + "\n";
@@ -855,7 +855,7 @@ function recalculateTokenRequestDescription()
       document.getElementById("display_token_request_form_textarea1").value = "POST " + document.getElementById("token_endpoint").value + "\n" +
                                                                      "Message Body:\n" +
                                                                       "grant_type=" + document.getElementById("token_grant_type").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("token_client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("token_clientID").value + "&" + "\n" +
                                                                       "client_secret=" + document.getElementById("token_client_secret").value + "&" + "\n" +
                                                                       "redirect_uri=" + document.getElementById("token_redirect_uri").value + "&" +"\n" +
                                                                       "scope=" + document.getElementById("token_scope").value + "\n" +
@@ -864,7 +864,7 @@ function recalculateTokenRequestDescription()
       document.getElementById("display_token_request_form_textarea1").value = "POST " + document.getElementById("token_endpoint").value + "\n" +
                                                                       "Message Body:\n" +
                                                                       "grant_type=" + document.getElementById("token_grant_type").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("token_client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("token_clientID").value + "&" + "\n" +
                                                                       "client_secret=" + document.getElementById("token_client_secret").value + "&" + "\n" +
                                                                       "username=" + document.getElementById("token_username").value + "&" + "\n" +
                                                                       "password=" + document.getElementById("token_password").value + "&" + "\n" +
@@ -905,7 +905,7 @@ function recalculateRefreshRequestDescription()
                                                                       "Message Body:\n" +
                                                                       "grant_type=" + document.getElementById("refresh_grant_type").value + "&" + "\n" +
                                                                       "refresh_token=" + document.getElementById("refresh_refresh_token").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("refresh_client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("refresh_clientID").value + "&" + "\n" +
                                                                       "client_secret=" + document.getElementById("refresh_client_secret").value + "&" + "\n" +
                                                                       "scope=" + document.getElementById("refresh_scope").value + "\n";
       } else {
@@ -913,7 +913,7 @@ function recalculateRefreshRequestDescription()
                                                                       "Message Body:\n" +
                                                                       "grant_type=" + document.getElementById("refresh_grant_type").value + "&" + "\n" +
                                                                       "refresh_token=" + document.getElementById("refresh_refresh_token").value + "&" + "\n" +
-                                                                      "client_id=" + document.getElementById("refresh_client_id").value + "&" + "\n" +
+                                                                      "clientID=" + document.getElementById("refresh_clientID").value + "&" + "\n" +
                                                                       "scope=" + document.getElementById("refresh_scope").value + "\n";
       }
     }
@@ -930,7 +930,7 @@ window.onload = function() {
   document.getElementById("state").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
   document.getElementById("nonce_field").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
   document.getElementById("response_type").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
-  document.getElementById("client_id").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
+  document.getElementById("clientID").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
   document.getElementById("redirect_uri").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
   document.getElementById("scope").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
   document.getElementById("resource").addEventListener("onkeypress", recalculateAuthorizationRequestDescription());
@@ -943,7 +943,7 @@ window.onload = function() {
     // Add an event listener for form submissions
     document.getElementById("auth_step").addEventListener("submit", function() {
       console.log("Entering auth_step submit event listner function.");
-      localStorage.setItem("client_id", document.getElementById("client_id").value);
+      localStorage.setItem("clientID", document.getElementById("clientID").value);
       localStorage.setItem("scope", document.getElementById("scope").value);
       localStorage.setItem("authorization_endpoint", document.getElementById("authorization_endpoint").value);
       localStorage.setItem("token_endpoint", document.getElementById("token_endpoint").value);
